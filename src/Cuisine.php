@@ -8,7 +8,7 @@
         function __construct($category, $assigned_cuisine_id, $id = null)
         {
             $this->category = $category;
-            $this->cuisine_id = $assigned_cuisine_id;
+            $this->cuisine_id = (int) $assigned_cuisine_id;
             $this->id = $id;
         }
 
@@ -54,6 +54,7 @@
             $categories = array();
             foreach($returned_category as $category) {
                 $category = $category['category'];
+                $cuisine_id = $catgory['cuisine_id'];
                 $id = $category['id'];
                 $new_category = new Cuisine($category, $cuisine_id, $id);
                 array_push($categories, $new_category);

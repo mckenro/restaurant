@@ -35,10 +35,9 @@
             $test_Cuisine->save();
 
             //Act
-            $result = $test_Restaurant->getID();
-
+            $result = $test_Cuisine->getCuisineId();
             //Assert
-            $this->assertEquals(true, is_numeric($result));
+            $this->assertTrue(is_numeric($result));
         }
 
         function test_getName()
@@ -122,9 +121,10 @@
             $name = "Pasta Mammas";
             $test_Restaurant = new Restaurant($name);
             $test_Restaurant->save();
-            $cuisine_id = $test_Restaurant->getId();
+
 
             $category = "Italian";
+            $cuisine_id = $test_Restaurant->getId();
             $test_Cuisine = new Cuisine($category, $cuisine_id);
             $test_Cuisine->save();
 
@@ -132,7 +132,7 @@
             $result = Cuisine::getAll();
 
             //Assert
-            $this->assertEquals($test_Cuisine, $result[0]);
+            $this->assertEquals($test_Cuisine, $result);
         }
 
         function test_getAll()
