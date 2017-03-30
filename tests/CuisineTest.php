@@ -26,9 +26,9 @@
         {
             //Arrange
             $category = "American";
-            $test_Cuisine = new Cuisine($category, 4);
+            $test_Cuisine = new Cuisine($category);
             $test_Cuisine->save();
-
+            var_dump($test_Cuisine);
             //Act
             $result = $test_Cuisine->getId();
 
@@ -40,7 +40,7 @@
         {
             //Arrange
             $category = "American";
-            $test_category = new Cuisine($category, 4);
+            $test_category = new Cuisine($category);
 
             //Act
             $result = $test_category->getCategory();
@@ -53,7 +53,7 @@
         {
             //Arrange
             $category = "American";
-            $test_category = new Cuisine($category, 4);
+            $test_category = new Cuisine($category);
             $new_category = "Italian";
 
             //Act
@@ -62,23 +62,6 @@
 
             //Assert
             $this->assertEquals($new_category, $result);
-        }
-
-        function test_find()
-        {
-            //Arrange
-            $category = "American";
-            $category2 = "Italian";
-            $test_category = new Cuisine($category, 4);
-            $test_category->save();
-            $test_category2 = new Cuisine($category2, 1);
-            $test_category2->save();
-
-            //Act
-            $result = Cuisine::find($test_category->getId());
-
-            //Assert
-            $this->assertEquals($test_category, $result);
         }
     }
 ?>
