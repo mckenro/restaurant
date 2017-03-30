@@ -28,7 +28,7 @@
             $category = "American";
             $test_Cuisine = new Cuisine($category);
             $test_Cuisine->save();
-            var_dump($test_Cuisine);
+
             //Act
             $result = $test_Cuisine->getId();
 
@@ -62,6 +62,22 @@
 
             //Assert
             $this->assertEquals($new_category, $result);
+        }
+
+        function test_find()
+        {
+            //Arrange
+            $category = "American";
+            $test_Cuisine = new Cuisine($category);
+            $test_Cuisine->save();
+            var_dump($test_Cuisine);
+
+            //Act
+            $current_id = $test_Cuisine->getId();
+            $result = $test_Cuisine->find($current_id);
+
+            //Assert
+            $this->assertEquals("American", $result);
         }
     }
 ?>

@@ -1,0 +1,12 @@
+{% include 'header.html.twig' %}
+      <h1>Best Restaurants</h1>
+      {% for outputs in output %}
+       <p>Name: {{outputs.getName }}</p>
+       <p>Address:</p>
+       <p>{{ outputs.getAddress }}</p>
+       <p>{{outputs.getCity }}</p>
+       <p>{{outputs.getState }}</p>
+       <p>{{outputs.getZip}}</p>
+       <p>{{ cuisine }}</p>
+       {% endfor %}
+{% include 'pagebottom.html.twig' %}

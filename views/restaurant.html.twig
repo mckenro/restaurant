@@ -1,0 +1,12 @@
+{% include 'header.html.twig' %}
+      <h1>Best Restaurants</h1>
+      <h2>Here is the information you submitted:</h2>
+       <p>Name: {{result.getName }}</p>
+       <p>Address:</p>
+       <p>{{ result.getAddress }}</p>
+       <p>{{result.getCity }}</p>
+       <p>{{result.getState }}</p>
+       <p>{{result.getZip}}</p>
+       <p>{{ cuisine }}</p>
+
+{% include 'pagebottom.html.twig' %}

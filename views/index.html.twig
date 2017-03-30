@@ -1,16 +1,43 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <script src="../scripts/jquery-3.2.0.js"></script>
-    <script src="../scripts/bootstrap.js"></script>
-    <script src="../scripts/scripts.js"></script>
-    <link href="../css/bootstrap.css" type="text/css" rel="stylesheet">
-    <link href="../css/styles.css" type="text/css" rel="stylesheet">
-    <title>Project Title</title>
-  </head>
-  <body>
-    <div class="container">
-      <h1>Project Title</h1>
-    </div>
-  </body>
-</html>
+{% include 'header.html.twig' %}
+      <h1>Best Restaurants</h1>
+      <h2>Insert a new restaurant below:</h2>
+      <form action='/restaurant' method='post'>
+        <div class = 'form-group'>
+          <input name='name' class='form-control' placeholder='Restaurant Name' type='text'></input>
+        </div>
+        <div class = 'form-group'>
+          <input name='street' class='form-control' placeholder='Street Address' type='text'></input>
+        </div>
+        <div class = 'form-group'>
+          <input name='city' class='form-control' placeholder='City' type='text'></input>
+        </div>
+        <div class = 'form-group'>
+          <input name='state' class='form-control' placeholder='State' type='text' maxlength='2'></input>
+        </div>
+        <div class = 'form-group'>
+          <input name='zip' class='form-control' placeholder='Zip Code' type='number' maxlength='5'></input>
+        </div>
+        <h5>Type of cuisine</h5>
+        <div class = 'form-group'>
+          <select name='category' class='form-control'>
+            <option value='1'>American</option>
+            <option value='2'>Mediterranean</option>
+            <option value='3'>Barbeque</option>
+            <option value='4'>Italian</option>
+          </select>
+        </div>
+        <button type='submit' class='btn btn-primary'>Submit</button>
+        </form>
+        <form action = '/results' method='post'>
+          <h5>View restaurants by type of cuisine</h5>
+          <div class = 'form-group'>
+            <select name='select_cuisine' class='form-control'>
+              <option value='1'>American</option>
+              <option value='2'>Mediterranean</option>
+              <option value='3'>Barbeque</option>
+              <option value='4'>Italian</option>
+            </select>
+          </div>
+          <button type='submit' class='btn btn-primary'>Search</button>
+        </form>
+{% include 'pagebottom.html.twig' %}

@@ -87,7 +87,7 @@
 
         function save()
         {
-            $executed = $GLOBALS['DB']->exec("INSERT INTO restaurants (name, address, city, state, zip, cuisine_id) VALUES ('{$this->getName()}', '{$this->getAddress()}', '{$this->getCity()}', '{$this->getState()}', '{$this->getZip()}', '{$this->getCuisineId()}');");
+            $executed = $GLOBALS['DB']->exec("INSERT INTO restaurants (name, address, city, state, zip, cuisine_id) VALUES ('{$this->getName()}', '{$this->getAddress()}', '{$this->getCity()}', '{$this->getState()}', '{$this->getZip()}', {$this->getCuisineId()})");
             if ($executed) {
                 $this->id = $GLOBALS['DB']->lastInsertId();
                 return true;

@@ -59,5 +59,17 @@
                 return false;
             }
         }
+        static function find($search_id)
+     {
+         $returned_cuisine = $GLOBALS['DB']->prepare("SELECT * FROM cuisines WHERE id = :id");
+         $returned_cuisine->bindParam(':id', $search_id, PDO::PARAM_STR);
+         $returned_cuisine->execute();
+         foreach ($returned_cuisine as $cuisine) {
+             $category_id = $cuisine['id'];
+             if ($category_id == $search_id) {
+              return $cuisine['category'];
+             }
+         }
+     }
     }
 ?>
